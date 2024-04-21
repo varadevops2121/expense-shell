@@ -8,7 +8,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-echo "please enter DB password"
+echo "Please enter DB password:"
 read -s mysql_root_password
 
 VALIDATE(){
@@ -43,7 +43,7 @@ VALIDATE $? "starting mysql server"
 
 #below code will be idempotence in nature
 
-mysql -h db.b12nagafacebook.xyz -uroot -p${mysql_root_password} -e 'SHOW DATABASES;' &>>$LOGFILE
+mysql -h db.b12nagafacebook.xyz -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
 
 if [ $? -ne 0 ]
 then 
@@ -52,4 +52,5 @@ then
 else 
     echo -e "MySQL root password already setup...$Y SKIPPING $N"
 fi
+    
     
